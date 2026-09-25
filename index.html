@@ -6,6 +6,246 @@
   <title>Henrique Santos</title>
 </head>
 <body>
-  <h1>Site em construção</h1>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MultiPost IA</title>
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* slate-900 */
+            color: #f8fafc; /* pl-50 */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Efeitos Neon */
+        .neon-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        .neon-cyan { box-shadow: 0 0 20px rgba(34, 211, 238, 0.4); }
+        .neon-pink { box-shadow: 0 0 20px rgba(244, 114, 182, 0.4); }
+
+        /* Animação de "Pensando" da IA */
+        .dot-flashing {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #a855f7;
+            animation: dot-flashing 1s infinite linear alternate;
+            animation-delay: 0.5s;
+        }
+        .dot-flashing::before, .dot-flashing::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 0;
+        }
+        .dot-flashing::before {
+            left: -15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #c084fc;
+            animation: dot-flashing 1s infinite alternate;
+            animation-delay: 0s;
+        }
+        .dot-flashing::after {
+            left: 15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #7e22ce;
+            animation: dot-flashing 1s infinite alternate;
+            animation-delay: 1s;
+        }
+        @keyframes dot-flashing {
+            0% { background-color: #a855f7; }
+            50%, 100% { background-color: rgba(168, 85, 247, 0.1); }
+        }
+
+        /* Custom Scrollbar para área de resultado */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+    </style>
+</head>
+<body class="min-h-screen p-4 flex flex-col items-center w-full max-w-md mx-auto">
+
+    <!-- 1. Topo: Espaço para Anúncio -->
+    <div class="w-full h-14 bg-slate-800/80 flex items-center justify-center text-slate-500 text-xs font-semibold tracking-widest uppercase rounded-xl mb-6 border border-slate-700 border-dashed backdrop-blur-sm">
+        Espaço para Anúncio
+    </div>
+
+    <!-- 2. Título Principal e Subtítulo -->
+    <header class="w-full text-center mb-8">
+        <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400 mb-2 drop-shadow-lg">
+            MultiPost IA
+        </h1>
+        <p class="text-slate-400 text-sm font-light px-2 leading-relaxed">
+            Transforme seus vídeos do TikTok em posts para outras redes em segundos
+        </p>
+    </header>
+
+    <!-- 3. Campo de Entrada -->
+    <div class="w-full relative mb-8 group">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-slate-400 group-focus-within:text-purple-400 transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+        </div>
+        <input 
+            type="url" 
+            id="tiktok-link" 
+            placeholder="Cole o link do TikTok aqui..." 
+            class="w-full bg-slate-800 text-white placeholder-slate-500 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-purple-500 border border-slate-700 transition-all shadow-inner text-sm"
+        >
+    </div>
+
+    <!-- 4. Botões de Ação -->
+    <div class="w-full flex flex-col gap-4 mb-8">
+        <!-- Botão A -->
+        <button onclick="processAI('A')" class="group relative w-full flex justify-center items-center py-4 px-4 text-sm font-bold rounded-2xl text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 active:scale-[0.98] transition-all neon-purple">
+            [A] Gerar Carrossel para Instagram
+        </button>
+        
+        <!-- Botão B -->
+        <button onclick="processAI('B')" class="group relative w-full flex justify-center items-center py-4 px-4 text-sm font-bold rounded-2xl text-slate-900 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 active:scale-[0.98] transition-all neon-cyan">
+            [B] Gerar Texto para LinkedIn/X
+        </button>
+
+        <!-- Botão C -->
+        <button onclick="processAI('C')" class="group relative w-full flex justify-center items-center py-4 px-4 text-sm font-bold rounded-2xl text-white bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 active:scale-[0.98] transition-all neon-pink">
+            [C] Criar Roteiro de Shorts
+        </button>
+    </div>
+
+    <!-- 5. Área de Resultado -->
+    <div id="result-container" class="w-full hidden flex-col mb-8 opacity-0 transition-opacity duration-500">
+        <div class="flex items-center justify-between mb-3 px-1">
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wide">Resultado da IA</h3>
+            
+            <button id="copy-btn" onclick="copyToClipboard()" class="hidden items-center gap-1.5 bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold py-1.5 px-3 rounded-lg text-white transition-colors">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <span>Copiar Texto</span>
+            </button>
+        </div>
+        
+        <div class="relative bg-slate-800/80 p-5 rounded-2xl border border-slate-700 shadow-xl min-h-[160px] flex items-center justify-center overflow-hidden">
+            
+            <!-- Loading State -->
+            <div id="loading-state" class="flex flex-col items-center justify-center gap-5 w-full absolute">
+                <div class="dot-flashing mt-2"></div>
+                <p class="text-xs text-purple-400 font-medium mt-3 animate-pulse">A IA está analisando seu conteúdo...</p>
+            </div>
+
+            <!-- Content State -->
+            <div id="content-state" class="hidden w-full h-full text-[13px] text-slate-200 whitespace-pre-wrap font-sans leading-relaxed max-h-[300px] overflow-y-auto pr-2"></div>
+        </div>
+    </div>
+
+    <!-- Spacer para empurrar o rodapé para o final -->
+    <div class="flex-grow"></div>
+
+    <!-- 6. Rodapé: Espaço para Anúncio -->
+    <div class="w-full h-14 bg-slate-800/80 flex items-center justify-center text-slate-500 text-xs font-semibold tracking-widest uppercase rounded-xl mt-6 border border-slate-700 border-dashed backdrop-blur-sm">
+        Espaço para Anúncio
+    </div>
+
+    <!-- Lógica JavaScript -->
+    <script>
+        // Dados fictícios baseados na escolha do usuário
+        const mockResponses = {
+            'A': `📸 CARROSSEL PARA INSTAGRAM (5 Slides)\n\n[Slide 1 - Capa]\n(Texto grande e chamativo)\n"O segredo que ninguém te conta sobre [Assunto do Vídeo] 🤫"\n\n[Slide 2]\nVocê já se perguntou por que algumas pessoas conseguem resultados tão rápidos?\nA resposta está em um pequeno detalhe...\n\n[Slide 3]\nO maior erro que vejo por aí é: [Problema citado no TikTok]. Isso destrói suas chances de crescer.\n\n[Slide 4]\nA Solução?\n1️⃣ Passo um da estratégia\n2️⃣ Passo dois da estratégia\n3️⃣ O pulo do gato que mostrei no vídeo\n\n[Slide 5 - CTA]\nCurtiu essa dica?\nSalva esse post para não esquecer e me segue para mais conteúdos como esse! 🚀👇`,
+            
+            'B': `💼 TEXTO PARA LINKEDIN / X\n\nHoje refleti sobre um ponto crucial que compartilhei recentemente e percebi que muitos profissionais ainda ignoram isso: [Insira o tema do TikTok].\n\nNos últimos anos, notei que a diferença entre tentar e realmente conseguir está na execução constante de princípios básicos.\n\nNo meu último conteúdo, abordei 3 pilares sobre isso:\n\n1. O problema de focar nas métricas erradas.\n2. Como [Estratégia] pode mudar o jogo.\n3. A importância da consistência a longo prazo.\n\nA verdadeira inovação não está em reinventar a roda, mas em girá-la com mais eficiência.\n\nO que vocês acham sobre essa abordagem? Já aplicaram algo parecido no dia a dia de vocês? Deixem nos comentários! 👇\n\n#Inovação #Carreira #Desenvolvimento #Empreendedorismo`,
+            
+            'C': `🎬 ROTEIRO PARA YOUTUBE SHORTS\n\n[Duração Estimada: 45s]\n\n[0:00 - 0:05] HOOK (Visual: Você apontando para a tela, cara de choque)\nFala: "Pare agora de fazer [Erro comum do nicho]! Isso está arruinando seus resultados, e eu vou te provar o porquê em 30 segundos."\n\n[0:05 - 0:15] CORPO 1 (Visual: Transição rápida, texto na tela)\nFala: "Todo mundo acha que o certo é fazer X, mas a verdade é que os grandes players do mercado usam a regra do Y."\n\n[0:15 - 0:30] CORPO 2 (Visual: Mostrando um exemplo prático ou print)\nFala: "Quando você aplica a estratégia que mostrei lá na outra rede, seu engajamento dobra porque você ataca direto a dor da sua audiência."\n\n[0:30 - 0:45] CTA (Visual: Apontando para o botão de se inscrever)\nFala: "Quer o passo a passo completo pra aplicar isso hoje? Clica no link da bio e se inscreve no canal pra não perder os próximos vídeos!"`
+        };
+
+        const resultContainer = document.getElementById('result-container');
+        const loadingState = document.getElementById('loading-state');
+        const contentState = document.getElementById('content-state');
+        const copyBtn = document.getElementById('copy-btn');
+        const buttons = document.querySelectorAll('button');
+
+        function processAI(type) {
+            // Verifica se o usuário inseriu um link (simulação simples visual)
+            const input = document.getElementById('tiktok-link');
+            if(input.value.trim() === '') {
+                // Adiciona um shake rápido no input se estiver vazio
+                input.classList.add('animate-pulse', 'border-red-500');
+                setTimeout(() => input.classList.remove('animate-pulse', 'border-red-500'), 1000);
+            }
+
+            // Exibir a caixa de resultados
+            resultContainer.classList.remove('hidden');
+            // Pequeno delay para a transição de opacidade funcionar no Tailwind
+            setTimeout(() => resultContainer.classList.remove('opacity-0'), 50);
+
+            // Reseta estados para "Loading"
+            loadingState.classList.remove('hidden');
+            loadingState.classList.add('flex');
+            contentState.classList.add('hidden');
+            copyBtn.classList.add('hidden');
+            copyBtn.classList.remove('flex');
+            
+            // Desabilita botões durante o "processamento"
+            buttons.forEach(btn => btn.disabled = true);
+
+            // Simula o tempo de raciocínio da IA (1.5 a 2.5 segundos)
+            const thinkingTime = Math.random() * 1000 + 1500;
+            
+            setTimeout(() => {
+                // Preenche o resultado com base no botão clicado
+                contentState.textContent = mockResponses[type];
+
+                // Troca os estados
+                loadingState.classList.add('hidden');
+                loadingState.classList.remove('flex');
+                
+                contentState.classList.remove('hidden');
+                contentState.classList.add('block');
+                
+                copyBtn.classList.remove('hidden');
+                copyBtn.classList.add('flex');
+
+                // Reabilita os botões
+                buttons.forEach(btn => btn.disabled = false);
+
+                // Rola suavemente para o resultado
+                resultContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+            }, thinkingTime);
+        }
+
+        function copyToClipboard() {
+            const textToCopy = contentState.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalContent = copyBtn.innerHTML;
+                // Feedback visual de copiado
+                copyBtn.innerHTML = `<svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-green-400">Copiado!</span>`;
+                copyBtn.classList.replace('bg-slate-700', 'bg-slate-800');
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalContent;
+                    copyBtn.classList.replace('bg-slate-800', 'bg-slate-700');
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar texto: ', err);
+                alert("Não foi possível copiar o texto.");
+            });
+        }
+    </script>
+</body>
+</html>
 </body>
 </html>
