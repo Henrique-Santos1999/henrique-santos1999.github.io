@@ -1,251 +1,186 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <script src="https://quge5.com/88/tag.min.js" data-zone="286720" async data-cfasync="false"></script>
-  <meta name="monetag" content="ab0eb5a307e05844e65bc50feb11838">
-  <title>Henrique Santos</title>
-</head>
-<body>
-  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MultiPost IA</title>
-    <!-- Tailwind CSS (via CDN) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora CLT x PJ</title>
+
+    <!-- Monetag Ads Scripts -->
+    <script src="https://quje5.com/88/tag.min.js" data-zone="286720" async data-cfasync="false"></script>
+    <meta name="monetag" content="ab0eb5a3b7e5644e65bc50feb13838">
+
+    <!-- Styles & Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a; /* slate-900 */
-            color: #f8fafc; /* pl-50 */
+            background-color: #0f172a;
+            color: #f8fafc;
             -webkit-tap-highlight-color: transparent;
         }
-
-        /* Efeitos Neon */
-        .neon-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
-        .neon-cyan { box-shadow: 0 0 20px rgba(34, 211, 238, 0.4); }
-        .neon-pink { box-shadow: 0 0 20px rgba(244, 114, 182, 0.4); }
-
-        /* Animação de "Pensando" da IA */
-        .dot-flashing {
-            position: relative;
-            width: 10px;
-            height: 10px;
-            border-radius: 5px;
-            background-color: #a855f7;
-            animation: dot-flashing 1s infinite linear alternate;
-            animation-delay: 0.5s;
-        }
-        .dot-flashing::before, .dot-flashing::after {
-            content: '';
-            display: inline-block;
-            position: absolute;
-            top: 0;
-        }
-        .dot-flashing::before {
-            left: -15px;
-            width: 10px;
-            height: 10px;
-            border-radius: 5px;
-            background-color: #c084fc;
-            animation: dot-flashing 1s infinite alternate;
-            animation-delay: 0s;
-        }
-        .dot-flashing::after {
-            left: 15px;
-            width: 10px;
-            height: 10px;
-            border-radius: 5px;
-            background-color: #7e22ce;
-            animation: dot-flashing 1s infinite alternate;
-            animation-delay: 1s;
-        }
-        @keyframes dot-flashing {
-            0% { background-color: #a855f7; }
-            50%, 100% { background-color: rgba(168, 85, 247, 0.1); }
-        }
-
-        /* Custom Scrollbar para área de resultado */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+        .glow-purple { box-shadow: 0 0 25px rgba(168, 85, 247, 0.25); }
+        .glow-cyan { box-shadow: 0 0 25px rgba(34, 211, 238, 0.25); }
     </style>
 </head>
-<body class="min-h-screen p-4 flex flex-col items-center w-full max-w-md mx-auto">
 
-    <!-- 1. Topo: Espaço para Anúncio -->
-    <div class="w-full h-14 bg-slate-800/80 flex items-center justify-center text-slate-500 text-xs font-semibold tracking-widest uppercase rounded-xl mb-6 border border-slate-700 border-dashed backdrop-blur-sm">
-        Espaço para Anúncio
-    </div>
+<body class="min-h-screen p-4 flex flex-col items-center justify-start max-w-4xl mx-auto">
 
-    <!-- 2. Título Principal e Subtítulo -->
-    <header class="w-full text-center mb-8">
-        <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400 mb-2 drop-shadow-lg">
-            MultiPost IA
+    <!-- Header -->
+    <header class="text-center my-6">
+        <h1 class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            Calculadora CLT x PJ
         </h1>
-        <p class="text-slate-400 text-sm font-light px-2 leading-relaxed">
-            Transforme seus vídeos do TikTok em posts para outras redes em segundos
-        </p>
+        <p class="text-slate-400 text-sm mt-2">Compare salários, benefícios e impostos para saber a melhor opção</p>
     </header>
 
-    <!-- 3. Campo de Entrada -->
-    <div class="w-full relative mb-8 group">
-        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <svg class="h-5 w-5 text-slate-400 group-focus-within:text-purple-400 transition-colors" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-            </svg>
-        </div>
-        <input 
-            type="url" 
-            id="tiktok-link" 
-            placeholder="Cole o link do TikTok aqui..." 
-            class="w-full bg-slate-800 text-white placeholder-slate-500 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-purple-500 border border-slate-700 transition-all shadow-inner text-sm"
-        >
-    </div>
-
-    <!-- 4. Botões de Ação -->
-    <div class="w-full flex flex-col gap-4 mb-8">
-        <!-- Botão A -->
-        <button onclick="processAI('A')" class="group relative w-full flex justify-center items-center py-4 px-4 text-sm font-bold rounded-2xl text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 active:scale-[0.98] transition-all neon-purple">
-            [A] Gerar Carrossel para Instagram
-        </button>
+    <!-- Form Container -->
+    <main class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <!-- Botão B -->
-        <button onclick="processAI('B')" class="group relative w-full flex justify-center items-center py-4 px-4 text-sm font-bold rounded-2xl text-slate-900 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 active:scale-[0.98] transition-all neon-cyan">
-            [B] Gerar Texto para LinkedIn/X
-        </button>
-
-        <!-- Botão C -->
-        <button onclick="processAI('C')" class="group relative w-full flex justify-center items-center py-4 px-4 text-sm font-bold rounded-2xl text-white bg-gradient-to-r from-pink-600 to-rose-500 hover:from-pink-500 hover:to-rose-400 active:scale-[0.98] transition-all neon-pink">
-            [C] Criar Roteiro de Shorts
-        </button>
-    </div>
-
-    <!-- 5. Área de Resultado -->
-    <div id="result-container" class="w-full hidden flex-col mb-8 opacity-0 transition-opacity duration-500">
-        <div class="flex items-center justify-between mb-3 px-1">
-            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wide">Resultado da IA</h3>
+        <!-- CLT Section -->
+        <section class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 glow-purple flex flex-col gap-4">
+            <h2 class="text-xl font-semibold text-purple-400 border-b border-slate-700 pb-2">Opção CLT</h2>
             
-            <button id="copy-btn" onclick="copyToClipboard()" class="hidden items-center gap-1.5 bg-slate-700 hover:bg-slate-600 text-[11px] font-semibold py-1.5 px-3 rounded-lg text-white transition-colors">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                <span>Copiar Texto</span>
-            </button>
-        </div>
-        
-        <div class="relative bg-slate-800/80 p-5 rounded-2xl border border-slate-700 shadow-xl min-h-[160px] flex items-center justify-center overflow-hidden">
-            
-            <!-- Loading State -->
-            <div id="loading-state" class="flex flex-col items-center justify-center gap-5 w-full absolute">
-                <div class="dot-flashing mt-2"></div>
-                <p class="text-xs text-purple-400 font-medium mt-3 animate-pulse">A IA está analisando seu conteúdo...</p>
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Salário Bruto Mensal (R$)</label>
+                <input type="number" id="cltBruto" placeholder="Ex: 5000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-purple-500">
             </div>
 
-            <!-- Content State -->
-            <div id="content-state" class="hidden w-full h-full text-[13px] text-slate-200 whitespace-pre-wrap font-sans leading-relaxed max-h-[300px] overflow-y-auto pr-2"></div>
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Vale Refeição / Alimentação (R$/mês)</label>
+                <input type="number" id="cltVaVr" placeholder="Ex: 800" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-purple-500">
+            </div>
+
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Outros Benefícios (Plano de Saúde, etc)</label>
+                <input type="number" id="cltOutros" placeholder="Ex: 400" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-purple-500">
+            </div>
+        </section>
+
+        <!-- PJ Section -->
+        <section class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 glow-cyan flex flex-col gap-4">
+            <h2 class="text-xl font-semibold text-cyan-400 border-b border-slate-700 pb-2">Opção PJ</h2>
+            
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Faturamento Mensal PJ (R$)</label>
+                <input type="number" id="pjBruto" placeholder="Ex: 8000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-cyan-500">
+            </div>
+
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Imposto Estimado (%)</label>
+                <input type="number" id="pjImposto" value="6" placeholder="Ex: 6" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-cyan-500">
+            </div>
+
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1">Custo com Contabilidade / Outros (R$/mês)</label>
+                <input type="number" id="pjContador" value="200" placeholder="Ex: 200" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-cyan-500">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Calculate Button -->
+    <button onclick="calcular()" class="w-full max-w-md my-6 py-3.5 px-6 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 font-bold rounded-xl shadow-lg transform active:scale-95 transition-all text-white text-lg">
+        Calcular Comparação
+    </button>
+
+    <!-- Results Section -->
+    <section id="resultado" class="w-full bg-slate-800/90 p-6 rounded-2xl border border-slate-700 hidden flex-col gap-4">
+        <h3 class="text-xl font-bold text-center border-b border-slate-700 pb-3">Resultado da Comparação</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 bg-slate-900/60 rounded-xl border border-purple-500/30">
+                <p class="text-xs text-purple-400 font-semibold uppercase">Ganhos Anuais CLT (Com 13º, Férias e FGTS)</p>
+                <p id="resCltAnual" class="text-2xl font-bold mt-1 text-white">R$ 0,00</p>
+                <p id="resCltMensal" class="text-xs text-slate-400 mt-1">Líquido mensal: R$ 0,00</p>
+            </div>
+
+            <div class="p-4 bg-slate-900/60 rounded-xl border border-cyan-500/30">
+                <p class="text-xs text-cyan-400 font-semibold uppercase">Ganhos Anuais PJ (Líquido)</p>
+                <p id="resPjAnual" class="text-2xl font-bold mt-1 text-white">R$ 0,00</p>
+                <p id="resPjMensal" class="text-xs text-slate-400 mt-1">Líquido mensal: R$ 0,00</p>
+            </div>
         </div>
-    </div>
 
-    <!-- Spacer para empurrar o rodapé para o final -->
-    <div class="flex-grow"></div>
+        <div id="veredito" class="p-4 rounded-xl text-center font-semibold text-sm mt-2"></div>
+    </section>
 
-    <!-- 6. Rodapé: Espaço para Anúncio -->
-    <div class="w-full h-14 bg-slate-800/80 flex items-center justify-center text-slate-500 text-xs font-semibold tracking-widest uppercase rounded-xl mt-6 border border-slate-700 border-dashed backdrop-blur-sm">
-        Espaço para Anúncio
-    </div>
+    <!-- Footer -->
+    <footer class="mt-auto py-6 text-center text-xs text-slate-500">
+        &copy; Henrique Santos - Todos os direitos reservados.
+    </footer>
 
-    <!-- Lógica JavaScript -->
+    <!-- Logic Script -->
     <script>
-        // Dados fictícios baseados na escolha do usuário
-        const mockResponses = {
-            'A': `📸 CARROSSEL PARA INSTAGRAM (5 Slides)\n\n[Slide 1 - Capa]\n(Texto grande e chamativo)\n"O segredo que ninguém te conta sobre [Assunto do Vídeo] 🤫"\n\n[Slide 2]\nVocê já se perguntou por que algumas pessoas conseguem resultados tão rápidos?\nA resposta está em um pequeno detalhe...\n\n[Slide 3]\nO maior erro que vejo por aí é: [Problema citado no TikTok]. Isso destrói suas chances de crescer.\n\n[Slide 4]\nA Solução?\n1️⃣ Passo um da estratégia\n2️⃣ Passo dois da estratégia\n3️⃣ O pulo do gato que mostrei no vídeo\n\n[Slide 5 - CTA]\nCurtiu essa dica?\nSalva esse post para não esquecer e me segue para mais conteúdos como esse! 🚀👇`,
-            
-            'B': `💼 TEXTO PARA LINKEDIN / X\n\nHoje refleti sobre um ponto crucial que compartilhei recentemente e percebi que muitos profissionais ainda ignoram isso: [Insira o tema do TikTok].\n\nNos últimos anos, notei que a diferença entre tentar e realmente conseguir está na execução constante de princípios básicos.\n\nNo meu último conteúdo, abordei 3 pilares sobre isso:\n\n1. O problema de focar nas métricas erradas.\n2. Como [Estratégia] pode mudar o jogo.\n3. A importância da consistência a longo prazo.\n\nA verdadeira inovação não está em reinventar a roda, mas em girá-la com mais eficiência.\n\nO que vocês acham sobre essa abordagem? Já aplicaram algo parecido no dia a dia de vocês? Deixem nos comentários! 👇\n\n#Inovação #Carreira #Desenvolvimento #Empreendedorismo`,
-            
-            'C': `🎬 ROTEIRO PARA YOUTUBE SHORTS\n\n[Duração Estimada: 45s]\n\n[0:00 - 0:05] HOOK (Visual: Você apontando para a tela, cara de choque)\nFala: "Pare agora de fazer [Erro comum do nicho]! Isso está arruinando seus resultados, e eu vou te provar o porquê em 30 segundos."\n\n[0:05 - 0:15] CORPO 1 (Visual: Transição rápida, texto na tela)\nFala: "Todo mundo acha que o certo é fazer X, mas a verdade é que os grandes players do mercado usam a regra do Y."\n\n[0:15 - 0:30] CORPO 2 (Visual: Mostrando um exemplo prático ou print)\nFala: "Quando você aplica a estratégia que mostrei lá na outra rede, seu engajamento dobra porque você ataca direto a dor da sua audiência."\n\n[0:30 - 0:45] CTA (Visual: Apontando para o botão de se inscrever)\nFala: "Quer o passo a passo completo pra aplicar isso hoje? Clica no link da bio e se inscreve no canal pra não perder os próximos vídeos!"`
-        };
+        function calcularINSS(salario) {
+            if (salario <= 1412) return salario * 0.075;
+            if (salario <= 2666.68) return (salario * 0.09) - 21.18;
+            if (salario <= 4000.03) return (salario * 0.12) - 101.18;
+            if (salario <= 7786.02) return (salario * 0.14) - 181.18;
+            return 908.85;
+        }
 
-        const resultContainer = document.getElementById('result-container');
-        const loadingState = document.getElementById('loading-state');
-        const contentState = document.getElementById('content-state');
-        const copyBtn = document.getElementById('copy-btn');
-        const buttons = document.querySelectorAll('button');
+        function calcularIRPF(base) {
+            if (base <= 2259.20) return 0;
+            if (base <= 2826.65) return (base * 0.075) - 169.44;
+            if (base <= 3751.05) return (base * 0.15) - 381.44;
+            if (base <= 4664.68) return (base * 0.225) - 662.77;
+            return (base * 0.275) - 896.00;
+        }
 
-        function processAI(type) {
-            // Verifica se o usuário inseriu um link (simulação simples visual)
-            const input = document.getElementById('tiktok-link');
-            if(input.value.trim() === '') {
-                // Adiciona um shake rápido no input se estiver vazio
-                input.classList.add('animate-pulse', 'border-red-500');
-                setTimeout(() => input.classList.remove('animate-pulse', 'border-red-500'), 1000);
+        function calcular() {
+            const cltBruto = parseFloat(document.getElementById('cltBruto').value) || 0;
+            const cltVaVr = parseFloat(document.getElementById('cltVaVr').value) || 0;
+            const cltOutros = parseFloat(document.getElementById('cltOutros').value) || 0;
+
+            const pjBruto = parseFloat(document.getElementById('pjBruto').value) || 0;
+            const pjImposto = (parseFloat(document.getElementById('pjImposto').value) || 0) / 100;
+            const pjContador = parseFloat(document.getElementById('pjContador').value) || 0;
+
+            if (cltBruto <= 0 && pjBruto <= 0) {
+                alert('Por favor, informe ao menos um valor de salário para calcular.');
+                return;
             }
 
-            // Exibir a caixa de resultados
-            resultContainer.classList.remove('hidden');
-            // Pequeno delay para a transição de opacidade funcionar no Tailwind
-            setTimeout(() => resultContainer.classList.remove('opacity-0'), 50);
+            // Cálculos CLT
+            const inss = calcularINSS(cltBruto);
+            const irpf = calcularIRPF(cltBruto - inss);
+            const cltLiquidoMensal = (cltBruto - inss - irpf) + cltVaVr + cltOutros;
+            const fgtsAnual = (cltBruto * 0.08) * 12;
+            const feriasAnual = cltBruto + (cltBruto / 3) - inss - irpf;
+            const decimoTerceiro = cltBruto - inss - irpf;
+            const cltTotalAnual = (cltLiquidoMensal * 12) + fgtsAnual + (cltVaVr * 12) + (cltOutros * 12) + (cltBruto / 3);
 
-            // Reseta estados para "Loading"
-            loadingState.classList.remove('hidden');
-            loadingState.classList.add('flex');
-            contentState.classList.add('hidden');
-            copyBtn.classList.add('hidden');
-            copyBtn.classList.remove('flex');
-            
-            // Desabilita botões durante o "processamento"
-            buttons.forEach(btn => btn.disabled = true);
+            // Cálculos PJ
+            const impostoPjMensal = pjBruto * pjImposto;
+            const pjLiquidoMensal = pjBruto - impostoPjMensal - pjContador;
+            const pjTotalAnual = pjLiquidoMensal * 12;
 
-            // Simula o tempo de raciocínio da IA (1.5 a 2.5 segundos)
-            const thinkingTime = Math.random() * 1000 + 1500;
-            
-            setTimeout(() => {
-                // Preenche o resultado com base no botão clicado
-                contentState.textContent = mockResponses[type];
+            // Formatação de valores
+            document.getElementById('resCltAnual').innerText = `R$ ${cltTotalAnual.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            document.getElementById('resCltMensal').innerText = `Líquido mensal + benefícios: R$ ${cltLiquidoMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
 
-                // Troca os estados
-                loadingState.classList.add('hidden');
-                loadingState.classList.remove('flex');
-                
-                contentState.classList.remove('hidden');
-                contentState.classList.add('block');
-                
-                copyBtn.classList.remove('hidden');
-                copyBtn.classList.add('flex');
+            document.getElementById('resPjAnual').innerText = `R$ ${pjTotalAnual.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            document.getElementById('resPjMensal').innerText = `Líquido mensal: R$ ${pjLiquidoMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
 
-                // Reabilita os botões
-                buttons.forEach(btn => btn.disabled = false);
+            // Veredito
+            const veredito = document.getElementById('veredito');
+            if (pjTotalAnual > cltTotalAnual) {
+                const diff = pjTotalAnual - cltTotalAnual;
+                veredito.className = "p-4 rounded-xl text-center font-semibold text-sm mt-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                veredito.innerText = `A opção PJ é financeiramente mais vantajosa por cerca de R$ ${(diff / 12).toLocaleString('pt-BR', {minimumFractionDigits: 2})}/mês a mais.`;
+            } else {
+                const diff = cltTotalAnual - pjTotalAnual;
+                veredito.className = "p-4 rounded-xl text-center font-semibold text-sm mt-2 bg-purple-500/20 text-purple-400 border border-purple-500/30";
+                veredito.innerText = `A opção CLT é mais vantajosa considerando benefícios e FGTS (cerca de R$ ${(diff / 12).toLocaleString('pt-BR', {minimumFractionDigits: 2})}/mês a mais equivalentes).`;
+            }
 
-                // Rola suavemente para o resultado
-                resultContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
-
-            }, thinkingTime);
-        }
-
-        function copyToClipboard() {
-            const textToCopy = contentState.textContent;
-            
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalContent = copyBtn.innerHTML;
-                // Feedback visual de copiado
-                copyBtn.innerHTML = `<svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span class="text-green-400">Copiado!</span>`;
-                copyBtn.classList.replace('bg-slate-700', 'bg-slate-800');
-                
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalContent;
-                    copyBtn.classList.replace('bg-slate-800', 'bg-slate-700');
-                }, 2000);
-            }).catch(err => {
-                console.error('Erro ao copiar texto: ', err);
-                alert("Não foi possível copiar o texto.");
-            });
+            document.getElementById('resultado').classList.remove('hidden');
+            document.getElementById('resultado').classList.add('flex');
         }
     </script>
-</body>
-</html>
 </body>
 </html>
