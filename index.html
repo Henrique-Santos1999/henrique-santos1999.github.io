@@ -3,183 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora CLT x PJ</title>
-
-    <!-- Monetag Ads Scripts -->
-    <script src="https://quje5.com/88/tag.min.js" data-zone="286720" async data-cfasync="false"></script>
-    <meta name="monetag" content="ab0eb5a3b7e5644e65bc50feb13838">
-
-    <!-- Styles & Fonts -->
+    <title>Calculadora CLT x PJ - Compare Salários, Benefícios e Impostos</title>
+    <meta name="description" content="Calculadora gratuita para comparar os regimes CLT e PJ. Descubra qual opção oferece maior retorno financeiro considerando impostos, benefícios e custos.">
+    <meta name="keywords" content="calculadora clt pj, comparar clt e pj, salario clt vs pj, impostos pj simples nacional, vale refeicao, fgts">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .glow-purple { box-shadow: 0 0 25px rgba(168, 85, 247, 0.25); }
-        .glow-cyan { box-shadow: 0 0 25px rgba(34, 211, 238, 0.25); }
-    </style>
 </head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between font-sans">
 
-<body class="min-h-screen p-4 flex flex-col items-center justify-start max-w-4xl mx-auto">
-
-    <!-- Header -->
-    <header class="text-center my-6">
-        <h1 class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+    <!-- Header / Navbar -->
+    <header class="w-full border-b border-slate-800 bg-slate-900/50 backdrop-blur py-4 px-6 text-center">
+        <h1 class="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
             Calculadora CLT x PJ
         </h1>
-        <p class="text-slate-400 text-sm mt-2">Compare salários, benefícios e impostos para saber a melhor opção</p>
+        <p class="text-slate-400 text-sm mt-1">
+            Compare salários, benefícios e impostos para saber a melhor opção
+        </p>
     </header>
 
-    <!-- Form Container -->
-    <main class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- CLT Section -->
-        <section class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 glow-purple flex flex-col gap-4">
-            <h2 class="text-xl font-semibold text-purple-400 border-b border-slate-700 pb-2">Opção CLT</h2>
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8 flex-grow w-full space-y-8">
+
+        <!-- Form Cards Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">Salário Bruto Mensal (R$)</label>
-                <input type="number" id="cltBruto" placeholder="Ex: 5000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-purple-500">
+            <!-- Opção CLT -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                <h2 class="text-xl font-bold text-purple-400 flex items-center gap-2">
+                    Opção CLT
+                </h2>
+                
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Salário Bruto Mensal (R$)</label>
+                    <input type="number" id="cltSalario" placeholder="Ex: 5000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-100 focus:outline-none focus:border-purple-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Vale Refeição / Alimentação (R$/mês)</label>
+                    <input type="number" id="cltVR" placeholder="Ex: 800" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-100 focus:outline-none focus:border-purple-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Outros Benefícios (Plano de Saúde, etc)</label>
+                    <input type="number" id="cltOutros" placeholder="Ex: 400" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-100 focus:outline-none focus:border-purple-500">
+                </div>
             </div>
 
-            <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">Vale Refeição / Alimentação (R$/mês)</label>
-                <input type="number" id="cltVaVr" placeholder="Ex: 800" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-purple-500">
+            <!-- Opção PJ -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+                <h2 class="text-xl font-bold text-cyan-400 flex items-center gap-2">
+                    Opção PJ
+                </h2>
+
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Faturamento Mensal PJ (R$)</label>
+                    <input type="number" id="pjFaturamento" placeholder="Ex: 8000" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-100 focus:outline-none focus:border-cyan-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Imposto Estimado (%)</label>
+                    <input type="number" id="pjImposto" value="6" placeholder="6" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-100 focus:outline-none focus:border-cyan-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Custo com Contabilidade / Outros (R$/mês)</label>
+                    <input type="number" id="pjCusto" value="200" placeholder="200" class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-slate-100 focus:outline-none focus:border-cyan-500">
+                </div>
             </div>
 
-            <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">Outros Benefícios (Plano de Saúde, etc)</label>
-                <input type="number" id="cltOutros" placeholder="Ex: 400" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-purple-500">
-            </div>
-        </section>
+        </div>
 
-        <!-- PJ Section -->
-        <section class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 glow-cyan flex flex-col gap-4">
-            <h2 class="text-xl font-semibold text-cyan-400 border-b border-slate-700 pb-2">Opção PJ</h2>
-            
-            <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">Faturamento Mensal PJ (R$)</label>
-                <input type="number" id="pjBruto" placeholder="Ex: 8000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-cyan-500">
-            </div>
+        <!-- Action Button -->
+        <div class="text-center">
+            <button onclick="calcular()" class="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-bold rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-0.5 active:translate-y-0">
+                Calcular Comparação
+            </button>
+        </div>
 
-            <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">Imposto Estimado (%)</label>
-                <input type="number" id="pjImposto" value="6" placeholder="Ex: 6" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-cyan-500">
-            </div>
-
-            <div>
-                <label class="block text-xs font-medium text-slate-300 mb-1">Custo com Contabilidade / Outros (R$/mês)</label>
-                <input type="number" id="pjContador" value="200" placeholder="Ex: 200" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-cyan-500">
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Calculate Button -->
-    <button onclick="calcular()" class="w-full max-w-md my-6 py-3.5 px-6 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 font-bold rounded-xl shadow-lg transform active:scale-95 transition-all text-white text-lg">
-        Calcular Comparação
-    </button>
-
-    <!-- Results Section -->
-    <section id="resultado" class="w-full bg-slate-800/90 p-6 rounded-2xl border border-slate-700 hidden flex-col gap-4">
-        <h3 class="text-xl font-bold text-center border-b border-slate-700 pb-3">Resultado da Comparação</h3>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-purple-500/30">
-                <p class="text-xs text-purple-400 font-semibold uppercase">Ganhos Anuais CLT (Com 13º, Férias e FGTS)</p>
-                <p id="resCltAnual" class="text-2xl font-bold mt-1 text-white">R$ 0,00</p>
-                <p id="resCltMensal" class="text-xs text-slate-400 mt-1">Líquido mensal: R$ 0,00</p>
-            </div>
-
-            <div class="p-4 bg-slate-900/60 rounded-xl border border-cyan-500/30">
-                <p class="text-xs text-cyan-400 font-semibold uppercase">Ganhos Anuais PJ (Líquido)</p>
-                <p id="resPjAnual" class="text-2xl font-bold mt-1 text-white">R$ 0,00</p>
-                <p id="resPjMensal" class="text-xs text-slate-400 mt-1">Líquido mensal: R$ 0,00</p>
+        <!-- Results Area -->
+        <div id="resultado" class="hidden bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+            <h3 class="text-lg font-bold text-slate-200">Resultado da Comparação</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm" id="detalhesResultado">
+                <!-- Preenchido via JavaScript -->
             </div>
         </div>
 
-        <div id="veredito" class="p-4 rounded-xl text-center font-semibold text-sm mt-2"></div>
-    </section>
+        <!-- SEO Content & Information Section -->
+        <article class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 text-slate-300 space-y-6 text-sm leading-relaxed">
+            <h2 class="text-xl font-bold text-slate-100 border-b border-slate-800 pb-2">
+                Como Funciona a Comparação entre CLT e PJ?
+            </h2>
+            <p>
+                Ao avaliar uma proposta de emprego no Brasil, uma das dúvidas mais frequentes é escolher entre o regime **CLT (Consolidação das Leis do Trabalho)** e a contratação como **PJ (Pessoa Jurídica)**. Ambas as modalidades têm vantagens e particularidades financeiras que devem ser analisadas com atenção.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold text-purple-400 mb-2">Regime CLT</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400">
+                        <li>**Direitos Garantidos:** Férias remuneradas (com adicional de 1/3), 13.º salário e aviso prévio.</li>
+                        <li>**FGTS:** Depósito mensal de 8% efetuado pelo empregador.</li>
+                        <li>**Segurança:** Proteção em caso de demissão sem justa causa e seguro-desemprego.</li>
+                        <li>**Descontos:** Retenção direta na fonte de INSS e IRPF.</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-cyan-400 mb-2">Regime PJ</h3>
+                    <ul class="list-disc list-inside space-y-1 text-slate-400">
+                        <li>**Maior Rendimento Bruto:** Menor carga tributária inicial em comparação com a tabela progressiva do IRPF.</li>
+                        <li>**Flexibilidade:** Maior autonomia de horários e possibilidade de prestar serviços a múltiplos clientes.</li>
+                        <li>**Responsabilidades:** O profissional assume a gestão dos seus próprios benefícios, impostos (Simples Nacional/MEI) e contabilidade.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="font-bold text-slate-200 text-base">Qual a regra geral para a conversão?</h3>
+            <p class="text-slate-400">
+                Geralmente, para manter o mesmo padrão de benefícios acumulados num contrato CLT (considerando 13.º salário, FGTS e férias), o valor ilíquido mensal de uma proposta PJ costuma situar-se entre **30% e 50% acima** do valor mensal bruto da proposta CLT.
+            </p>
+        </article>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="mt-auto py-6 text-center text-xs text-slate-500">
-        &copy; Henrique Santos - Todos os direitos reservados.
+    <footer class="w-full border-t border-slate-800 bg-slate-900/50 py-6 text-center text-xs text-slate-500 space-y-2">
+        <p>© 2026 Calculadora CLT x PJ. Todos os direitos reservados.</p>
+        <p class="max-w-2xl mx-auto px-4 text-slate-600">
+            **Aviso Legal:** Esta ferramenta oferece estimativas financeiras simplificadas com fins meramente informativos. Não substitui a consulta de um contabilista ou profissional especializado.
+        </p>
     </footer>
 
     <!-- Logic Script -->
     <script>
-        function calcularINSS(salario) {
-            if (salario <= 1412) return salario * 0.075;
-            if (salario <= 2666.68) return (salario * 0.09) - 21.18;
-            if (salario <= 4000.03) return (salario * 0.12) - 101.18;
-            if (salario <= 7786.02) return (salario * 0.14) - 181.18;
-            return 908.85;
-        }
-
-        function calcularIRPF(base) {
-            if (base <= 2259.20) return 0;
-            if (base <= 2826.65) return (base * 0.075) - 169.44;
-            if (base <= 3751.05) return (base * 0.15) - 381.44;
-            if (base <= 4664.68) return (base * 0.225) - 662.77;
-            return (base * 0.275) - 896.00;
-        }
-
         function calcular() {
-            const cltBruto = parseFloat(document.getElementById('cltBruto').value) || 0;
-            const cltVaVr = parseFloat(document.getElementById('cltVaVr').value) || 0;
+            const cltSalario = parseFloat(document.getElementById('cltSalario').value) || 0;
+            const cltVR = parseFloat(document.getElementById('cltVR').value) || 0;
             const cltOutros = parseFloat(document.getElementById('cltOutros').value) || 0;
 
-            const pjBruto = parseFloat(document.getElementById('pjBruto').value) || 0;
-            const pjImposto = (parseFloat(document.getElementById('pjImposto').value) || 0) / 100;
-            const pjContador = parseFloat(document.getElementById('pjContador').value) || 0;
+            const pjFaturamento = parseFloat(document.getElementById('pjFaturamento').value) || 0;
+            const pjImposto = parseFloat(document.getElementById('pjImposto').value) || 0;
+            const pjCusto = parseFloat(document.getElementById('pjCusto').value) || 0;
 
-            if (cltBruto <= 0 && pjBruto <= 0) {
-                alert('Por favor, informe ao menos um valor de salário para calcular.');
+            if (cltSalario === 0 && pjFaturamento === 0) {
+                alert('Por favor, insira pelo menos um valor de salário CLT ou faturamento PJ.');
                 return;
             }
 
-            // Cálculos CLT
-            const inss = calcularINSS(cltBruto);
-            const irpf = calcularIRPF(cltBruto - inss);
-            const cltLiquidoMensal = (cltBruto - inss - irpf) + cltVaVr + cltOutros;
-            const fgtsAnual = (cltBruto * 0.08) * 12;
-            const feriasAnual = cltBruto + (cltBruto / 3) - inss - irpf;
-            const decimoTerceiro = cltBruto - inss - irpf;
-            const cltTotalAnual = (cltLiquidoMensal * 12) + fgtsAnual + (cltVaVr * 12) + (cltOutros * 12) + (cltBruto / 3);
+            // Estimativa simples de descontos CLT (INSS + IRPF aproximado em ~15%)
+            const descontosCLT = cltSalario * 0.15;
+            const cltLiquidoMensal = (cltSalario - descontosCLT) + cltVR + cltOutros;
 
-            // Cálculos PJ
-            const impostoPjMensal = pjBruto * pjImposto;
-            const pjLiquidoMensal = pjBruto - impostoPjMensal - pjContador;
+            // Anualizado CLT (12 meses + 13º + 1/3 Férias + 8% FGTS)
+            const fgtsAnual = cltSalario * 0.08 * 12;
+            const cltTotalAnual = (cltLiquidoMensal * 12) + (cltSalario) + (cltSalario / 3) + fgtsAnual;
+
+            // PJ Cálculo
+            const impostoPJValor = pjFaturamento * (pjImposto / 100);
+            const pjLiquidoMensal = pjFaturamento - impostoPJValor - pjCusto;
             const pjTotalAnual = pjLiquidoMensal * 12;
 
-            // Formatação de valores
-            document.getElementById('resCltAnual').innerText = `R$ ${cltTotalAnual.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
-            document.getElementById('resCltMensal').innerText = `Líquido mensal + benefícios: R$ ${cltLiquidoMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            const resultadoDiv = document.getElementById('resultado');
+            const detalhesDiv = document.getElementById('detalhesResultado');
 
-            document.getElementById('resPjAnual').innerText = `R$ ${pjTotalAnual.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
-            document.getElementById('resPjMensal').innerText = `Líquido mensal: R$ ${pjLiquidoMensal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+            detalhesDiv.innerHTML = `
+                <div class="bg-slate-950 p-4 rounded-xl border border-purple-500/30">
+                    <h4 class="font-bold text-purple-400 mb-2">Resumo CLT</h4>
+                    <p>Líquido Mensal Estimado: <strong>R$ ${cltLiquidoMensal.toFixed(2)}</strong></p>
+                    <p class="text-xs text-slate-400 mt-1">Total Anual (com 13º, Férias e FGTS): R$ ${cltTotalAnual.toFixed(2)}</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-cyan-500/30">
+                    <h4 class="font-bold text-cyan-400 mb-2">Resumo PJ</h4>
+                    <p>Líquido Mensal Estimado: <strong>R$ ${pjLiquidoMensal.toFixed(2)}</strong></p>
+                    <p class="text-xs text-slate-400 mt-1">Total Anual Estimado: R$ ${pjTotalAnual.toFixed(2)}</p>
+                </div>
+            `;
 
-            // Veredito
-            const veredito = document.getElementById('veredito');
-            if (pjTotalAnual > cltTotalAnual) {
-                const diff = pjTotalAnual - cltTotalAnual;
-                veredito.className = "p-4 rounded-xl text-center font-semibold text-sm mt-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
-                veredito.innerText = `A opção PJ é financeiramente mais vantajosa por cerca de R$ ${(diff / 12).toLocaleString('pt-BR', {minimumFractionDigits: 2})}/mês a mais.`;
-            } else {
-                const diff = cltTotalAnual - pjTotalAnual;
-                veredito.className = "p-4 rounded-xl text-center font-semibold text-sm mt-2 bg-purple-500/20 text-purple-400 border border-purple-500/30";
-                veredito.innerText = `A opção CLT é mais vantajosa considerando benefícios e FGTS (cerca de R$ ${(diff / 12).toLocaleString('pt-BR', {minimumFractionDigits: 2})}/mês a mais equivalentes).`;
-            }
-
-            document.getElementById('resultado').classList.remove('hidden');
-            document.getElementById('resultado').classList.add('flex');
+            resultadoDiv.classList.remove('hidden');
         }
     </script>
 </body>
